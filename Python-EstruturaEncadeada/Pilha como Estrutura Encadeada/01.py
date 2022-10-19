@@ -1,0 +1,1 @@
+# Escrever uma função que receba como parâmetro uma pilha. A função deve retornar o maior elemento da pilha.
