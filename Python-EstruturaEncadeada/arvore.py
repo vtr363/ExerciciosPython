@@ -51,6 +51,18 @@ class Arvore:
 
     def mostra_em_ordem(self):
         self.__em_ordem(self.root)
+    
+    def max(self):
+        current = self.root
+        while current:
+            current = current.direita
+        return current
+    
+    def min(self):
+        current = self.root
+        while current:
+            current = current.esquerda
+        return current
 
 
     
