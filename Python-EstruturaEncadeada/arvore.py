@@ -21,6 +21,7 @@ class NodoArvore:
 class Arvore:
     def __init__(self):
         self.root = None
+        self.arvore = []
 
     def add(self, dado):
         if not self.root:
@@ -43,27 +44,39 @@ class Arvore:
     
     def __em_ordem(self, raiz):
         if not raiz:
-            return
+            return self.arvore
         
         self.__em_ordem(raiz.esquerda)
         print(raiz.dado)
+        self.arvore.append(raiz.dado)
         self.__em_ordem(raiz.direita)
 
     def mostra_em_ordem(self):
-        self.__em_ordem(self.root)
+        return self.__em_ordem(self.root)
+
     
     def max(self):
         current = self.root
-        while current:
+        while current.direita:
             current = current.direita
-        return current
+        return current.dado
     
     def min(self):
         current = self.root
-        while current:
+        while current.esquerda:
             current = current.esquerda
-        return current
+        return current.dado
 
+    def compareTo(self, arvore2):
+        if self.mostra_em_ordem() == arvore2.mostra_em_ordem():
+            return True
+        return False
+
+    def altura(self, raiz):
+        if not raiz:
+            return 
+        
+        
 
     
 arv = Arvore()
@@ -74,3 +87,5 @@ arv.add(4)
 arv.mostra_em_ordem()
 x = arv.search(4)
 print(x.dado)
+print("max " + arv.max())
+print("min " + arv.min())
